@@ -1,0 +1,20 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"web_cam" [label="web_cam"];
+"wheel_1" [label="wheel_1"];
+"wheel_2" [label="wheel_2"];
+"wheel_3" [label="wheel_3"];
+"wheel_4" [label="wheel_4"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "base_to_web_cam" [label="xyz: 0.38 0 0.14 \nrpy: 0 -0 0"]
+"base_to_web_cam" -> "web_cam"
+"base_link" -> "base_to_wheel1" [label="xyz: 0.305 0.27 0.055 \nrpy: 1.5708 -0 0"]
+"base_to_wheel1" -> "wheel_1"
+"base_link" -> "base_to_wheel2" [label="xyz: -0.305 0.27 0.055 \nrpy: 1.5708 -0 0"]
+"base_to_wheel2" -> "wheel_2"
+"base_link" -> "base_to_wheel3" [label="xyz: 0.305 -0.27 0.055 \nrpy: 1.5708 -0 0"]
+"base_to_wheel3" -> "wheel_3"
+"base_link" -> "base_to_wheel4" [label="xyz: -0.305 -0.27 0.055 \nrpy: 1.5708 -0 0"]
+"base_to_wheel4" -> "wheel_4"
+}

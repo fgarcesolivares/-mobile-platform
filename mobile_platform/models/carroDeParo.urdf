@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<robot name="carroDeParo">
+	<link name="base_link">
+   		<visual>
+     			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/chasis.STL" scale="0.001 0.001 0.001"/>
+     			</geometry>
+			<origin rpy="1.5708 0 0" xyz="-0.425 0.3 0.04"/>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+   		</visual>
+		<collision>
+			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/chasis.STL" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="100"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+				
+ 	</link>
+
+ 	<link name="wheel_1">
+   		<visual>
+     			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/Rueda.STL" scale="0.001 0.001 0.001"/>
+     			</geometry>
+			<origin rpy="0 0 0" xyz="-0.051 -0.051 -0.04"/>
+   			<material name="black">
+				<color rgba="0 0 0 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/Rueda.STL" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="10"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+ 	</link>
+
+ 	<link name="wheel_2">
+   		<visual>
+     			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/Rueda.STL" scale="0.001 0.001 0.001"/>
+     			</geometry>
+			<origin rpy="0 0 0" xyz="-0.051 -0.051 -0.04"/>
+   			<material name="black"/>
+   		</visual>
+		<collision>
+			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/Rueda.STL" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="10"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+
+ 	</link>
+    
+ 	<link name="wheel_3">
+   		<visual>
+     			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/Rueda.STL" scale="0.001 0.001 0.001"/>
+     			</geometry>
+			<origin rpy="0 0 0" xyz="-0.051 -0.051 0"/>
+   			<material name="black"/>
+   		</visual>
+		<collision>
+			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/Rueda.STL" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="10"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+ 	</link>
+
+ 	<link name="wheel_4">
+   		<visual>
+     			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/Rueda.STL" scale="0.001 0.001 0.001"/>
+     			</geometry>
+			<origin rpy="0 0 0" xyz="-0.051 -0.051 0"/>
+   			<material name="black"/>
+   		</visual>
+		<collision>
+			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/Rueda.STL" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="10"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+	</link>
+	
+	<link name="web_cam">
+   		<visual>
+     			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/web_cam.STL" scale="0.01 0.01 0.01"/>
+     			</geometry>
+			<origin rpy="0 0 1.5708" xyz="0 0 0"/>
+   			
+   		</visual>
+		<collision>
+			<geometry>
+      				<mesh filename="package://plataformaMovil/meshes/web_cam.STL" scale="0.01 0.01 0.01"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="3"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+ 	</link>
+
+
+ 	<joint name="base_to_wheel1" type="revolute">
+   		<parent link="base_link"/>
+   		<child link="wheel_1"/>
+   		<axis xyz="0 1 0"/>
+   		<origin rpy="1.5708 0 0" xyz="0.305 0.27 0.055"/>
+   		<limit effort="1000" lower="-0.45" upper="0.45" velocity="0.45"/>
+ 	</joint>
+
+ 	<joint name="base_to_wheel2" type="continuous">
+   		<parent link="base_link"/>
+   		<child link="wheel_2"/>
+   		<axis xyz="0 0 1"/>
+   		<origin rpy="1.5708 0 0" xyz="-0.305 0.27 0.055"/>
+ 	</joint>
+
+ 	<joint name="base_to_wheel3" type="revolute">
+   		<parent link="base_link"/>
+   		<child link="wheel_3"/>
+   		<axis xyz="0 1 0"/>
+   		<origin rpy="1.5708 0 0" xyz="0.305 -0.27 0.055"/>
+   		<limit effort="1000" lower="-0.45" upper="0.45" velocity="0.45"/>
+ 	</joint>
+
+ 	<joint name="base_to_wheel4" type="continuous">
+   		<parent link="base_link"/>
+   		<child link="wheel_4"/>
+   		<axis xyz="0 0 1"/>
+   		<origin rpy="1.5708 0 0" xyz="-0.305 -0.27 0.055"/>
+ 	</joint>
+ 	
+ 	<joint name="base_to_web_cam" type="fixed">
+   		<parent link="base_link"/>
+   		<child link="web_cam"/>
+   		<origin rpy="0 0 0" xyz="0.38 0 0.14"/>
+ 	</joint>
+	
+</robot>   		
